@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  app:
+    image: sobadon:eyes-dir
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - "./:/eyes-dir"
+      - "/eyes-dir/node_modules"
+    tty: true

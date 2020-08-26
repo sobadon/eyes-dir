@@ -1,0 +1,47 @@
+{
+  "name": "eyes-dir",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/index.ts",
+    "dev:watch": "ts-node-dev --respawn src/index.ts",
+    "clean": "rimraf dist/*",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc",
+    "build:windows": "npm-run-all clean tsc && cp ./dist/index.js ./ && nexe ./index.js --target windows-x64-12.0.0 && rm ./index.js",
+    "start": "node dist/",
+    "lint": "eslint --ext .ts ./src",
+    "lint:fix": "eslint --fix --ext .ts ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sobadon/eyes-dir.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sobadon/eyes-dir/issues"
+  },
+  "homepage": "https://github.com/sobadon/eyes-dir#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.24",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.0",
+    "rimraf": "^3.0.2",
+    "ts-node-dev": "^1.0.0-pre.52",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@types/async": "^3.2.3",
+    "async": "^3.2.0",
+    "chokidar": "^3.4.1"
+  }
+}

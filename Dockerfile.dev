@@ -1,0 +1,11 @@
+FROM node:14-alpine
+
+WORKDIR /eyes-dir
+
+RUN apk add --no-cache \
+    git \
+    openssh
+
+RUN yarn global add nexe
+COPY package.json yarn.lock ./
+RUN yarn

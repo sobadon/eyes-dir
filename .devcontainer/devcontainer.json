@@ -1,0 +1,29 @@
+{
+  "name": "eyes-dir",
+  "dockerComposeFile": [
+    "../docker-compose.dev.yml",
+    "docker-compose.extend.yml"
+  ],
+  "context": "..",
+  "service": "app",
+  "workspaceFolder": "/eyes-dir",
+  "extensions": [
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "eg2.vscode-npm-script",
+    "eamodio.gitlens",
+    "oderwat.indent-rainbow",
+    "mhutchie.git-graph",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint"
+  ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/ash",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "shutdownAction": "stopCompose",
+  "remoteEnv": {
+    "NODE_PATH": "/eyes-dir/node_modules"
+  }
+}
