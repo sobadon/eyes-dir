@@ -35,9 +35,8 @@ if (watcher) {
 	watcher.on('ready', () => {
 		console.log('Ready');
 		watcher.on('add', (path: string) => {
-			const fileAbsPath = abspath + '\\' + path;
-			console.log(`Add: ${fileAbsPath}`);
-			callBatQueue.push(fileAbsPath);
+			console.log(`Add: ${path}`);
+			callBatQueue.push(path);
 		});
 	});
 } else {
