@@ -26,9 +26,6 @@ if (!fs.existsSync(path.resolve(watch_path))) {
 
 const watcher: chokidar.FSWatcher = chokidar.watch(watch_path, {
 	persistent: true,
-	usePolling: true,
-	interval: 1000,
-	binaryInterval: 1000,
 });
 
 if (watcher) {
