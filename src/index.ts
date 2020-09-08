@@ -49,6 +49,7 @@ const callBat = (path: string, callback: () => void) => {
 		{ shell: true }
 	);
 	spawn.on('close', (code: number) => {
+		// 次々とバッチを呼び出すことが目的なのでバッチ側エラーは無視
 		if (code != 0) console.error(`close: process existed with code ${code}`);
 		callback();
 	});
