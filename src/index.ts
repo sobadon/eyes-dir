@@ -13,14 +13,14 @@ console.log(`呼び出される bat ファイル名：${callBatName}`);
 console.log(`このディレクトリの絶対パス：${abspath}`);
 
 if (!fs.existsSync(callBatName)) {
-	console.log(`${callBatName} が存在しません`);
-	console.log('呼び出される bat ファイルを作成してください');
+	console.error(`${callBatName} が存在しません`);
+	console.error('呼び出される bat ファイルを作成してください');
 	process.exit(1);
 }
 
 if (!fs.existsSync(path.resolve(watch_path))) {
-	console.log(`${watch_path} が存在しません`);
-	console.log('監視対象のディレクトリを作成してください');
+	console.error(`${watch_path} が存在しません`);
+	console.error('監視対象のディレクトリを作成してください');
 	process.exit(1);
 }
 
@@ -49,7 +49,7 @@ const callBat = (path: string, callback: () => void) => {
 		{ shell: true }
 	);
 	spawn.on('close', (code: number) => {
-		if (code != 0) console.log(`close: process existed with code ${code}`);
+		if (code != 0) console.error(`close: process existed with code ${code}`);
 		callback();
 	});
 };
